@@ -19,6 +19,7 @@ const genres = [{
 
 
 router.get('/', (req, res) => {
+  console.log('in the get route');
   res.send(genres);
 });
 
@@ -96,7 +97,9 @@ router.delete('/:id', (req, res) => {
     });
     return;
   }
-  const genre = generes.indexOf()
+  const genre = genres.filter(genre => genre.id === id);
+  generes.splice(genres.indexOf(genre), 1);
+  res.status(200).send(genre);
 });
 
 
