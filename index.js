@@ -7,7 +7,9 @@ const mongoose = require('mongoose');
 const app = express();
 
 const genre = require('./routes/genre');
+const customer = require('./routes/customer');
 const homePage = require('./routes/home');
+
 
 mongoose.connect('mongodb://localhost:27017/vidly', {
     useNewUrlParser: true
@@ -39,6 +41,7 @@ if (app.get('env') === 'development') {
 }
 
 app.use('/api/genres', genre);
+app.use('/api/customers', customer);
 app.use('/', homePage);
 
 app.listen(port, () => {
