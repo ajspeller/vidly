@@ -3,12 +3,20 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const config = require('config');
 const debug = require('debug')('app:startup');
+const mongoose = require('mongoose');
 const app = express();
 
 const genre = require('./routes/genre');
 const homePage = require('./routes/home');
 
+mongoose.connect('mongodb://localhost:27017/vidly', {
+    useNewUrlParser: true
+  })
+  .then(() => console.log('Database connection successful'))
+  .catch(err => console.error('Database connection failed', err));
+
 const port = process.env.PORT || 7500;
+
 
 app.engine('pug', require('pug').__express);
 app.set('view engine', 'pug');
