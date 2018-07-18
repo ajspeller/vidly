@@ -13,16 +13,4 @@ router.route('/:id')
   .put(genreHandlers.updateGenre)
   .delete(genreHandlers.deleteGenre);
   
-
-//router.get('/', genreHandlers.getAll);
-
-// router.get('/:id', genreHandlers.getGenreById);
-
-// router.put('/:id', genreHandlers.updateGenre);
-
-// router.post('/', genreHandlers.createGenre);
-
-// router.delete('/:id', genreHandlers.deleteGenre);
-
-
 module.exports = router;
